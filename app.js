@@ -638,6 +638,8 @@ var mobiles = {
 let brand = document.getElementById("mobileBrand");
 let Model = document.getElementById("mobileModel");
 let modelDetails = document.getElementById("displayContainer");
+
+// style 
 modelDetails.style.backgroundColor="#cae0f6ff";
 
 
@@ -649,7 +651,13 @@ for(i = 0; i < mobileBrand.length; i++){
   optElement.appendChild(optText);
   brand.appendChild(optElement);
 
+
+  // option Element style 
   optElement.style.color="black";
+  optElement.style.backgroundColor="#cae0f6ff";
+  optElement.style.outline="none";
+  optElement.style.border="2px solid #cae0f6ff";
+  optElement.style.borderRadius="20px ";
   
 }
 
@@ -669,7 +677,12 @@ brand.addEventListener("change",function(){
       modelOpt.appendChild(modeelText);
       Model.appendChild(modelOpt);
 
-      modelOpt.style.color="black";
+      // option Element style 
+  modelOpt.style.color="black";
+  modelOpt.style.backgroundColor="#cae0f6ff";
+  modelOpt.style.outline="none";
+  modelOpt.style.border="2px solid #cae0f6ff";
+  modelOpt.style.borderRadius="20px ";
 
 
     }
