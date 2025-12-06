@@ -6,16 +6,19 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body >  
-    <div>
-      <select style="width: 150px" id="mobileBrand">
-      </select>
-      <select style="width: 150px" id="mobileModel">
-      </select>
-      <button >Search</button>
+  <body class="bg-gray-700">  
+   <div class="flex flex-wrap justify-center w-full mt-[100px] gap-3 text-white">
+  <select id="mobileBrand" class="p-2 w-[240px] outline-none rounded-md bg-transparent border-2 border-blue-300">
+  </select>
+  
+  <select id="mobileModel" class="p-2 w-[240px] outline-none rounded-md bg-transparent border-2 border-blue-300 ">
+  </select>
+</div>
+
     </div> 
-    <br><br><br>
-    <div class="w-[600px]  border-2 border-red-300"  id="displayContainer">
+    <br>
+    <div class="mx-auto w-[500px] text-gray-700 p-3 rounded-md border-4  border-blue-300 p-4 bg-gray-600 overflow-auto break-words text-sm"  id="displayContainer">
+      <h3 class="text-xl text-white "> Mobile specifications</h3>
 
     </div>
     

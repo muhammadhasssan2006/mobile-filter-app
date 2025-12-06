@@ -638,6 +638,7 @@ var mobiles = {
 let brand = document.getElementById("mobileBrand");
 let Model = document.getElementById("mobileModel");
 let modelDetails = document.getElementById("displayContainer");
+modelDetails.style.backgroundColor="#cae0f6ff";
 
 
 let mobileBrand = Object.keys(mobiles);
@@ -647,7 +648,8 @@ for(i = 0; i < mobileBrand.length; i++){
   let optText = document.createTextNode(mobileBrand[i]);
   optElement.appendChild(optText);
   brand.appendChild(optElement);
-  console.log(brand);
+
+  optElement.style.color="black";
   
 }
 
@@ -666,6 +668,8 @@ brand.addEventListener("change",function(){
       let modeelText = document.createTextNode(mobileModel[i]);
       modelOpt.appendChild(modeelText);
       Model.appendChild(modelOpt);
+
+      modelOpt.style.color="black";
 
 
     }
@@ -690,11 +694,23 @@ Model.addEventListener("change", function() {
         for (let subKey in value) {
           let p = document.createElement("p");
           p.textContent = `${subKey}: ${value[subKey]}`;
+          p.style.color="black";
+          p.style.fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+          p.style.fontSize="16px";
           modelDetails.appendChild(p);
+
+
         }
       } else {
         let p = document.createElement("p");
         p.textContent = `${key}: ${value}`;
+          p.style.color="black";
+          p.style.fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+          p.style.fontSize="16px";
+
+
         modelDetails.appendChild(p);
       }
     }
