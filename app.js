@@ -631,66 +631,78 @@ var mobiles = {
   };
 
 
-  // let brand = document.getElementById("mobileBrand");
-  // let mobileModel = document.getElementById("mobileModel");
 
-//  let mobileNames = Object.keys(mobiles);
-//  for(i=0;i<mobileNames.length;i++){
-//   let brandOpt = document.createElement("option");
-//   brandOpt.text=mobileNames[i]
-//   brandOpt.value=mobileNames[i]
-  
-  
-//   brand.appendChild(optElement)
-//   console.log(brand);
-// }
- 
 
-// let model = Object.values(mobiles);
-// for(i=0;i<model.length;i++){
-//  let modelOpt = document.createElement("option");
-//  modelOpt.text=model[i]
-//  modelOpt.value=model[i]
-//  mobileModel.appendChild(modelOpt)
-
-//  console.log(model);
-// }
 
 
 let brand = document.getElementById("mobileBrand");
-let mobileModel = document.getElementById("mobileModel");
+let Model = document.getElementById("mobileModel");
+let modelDetails = document.getElementById("displayContainer");
 
-// 1️⃣ Fill brand dropdown
-let mobileNames = Object.keys(mobiles);
-for (let i = 0; i < mobileNames.length; i++) {
-    let optElement = document.createElement("option");
-    optElement.text = mobileNames[i];
-    optElement.value = mobileNames[i];
-    brand.appendChild(optElement);
+
+let mobileBrand = Object.keys(mobiles);
+
+for(i = 0; i < mobileBrand.length; i++){
+  let optElement = document.createElement("option");
+  let optText = document.createTextNode(mobileBrand[i]);
+  optElement.appendChild(optText);
+  brand.appendChild(optElement);
+  console.log(brand);
+  
 }
 
-// 2️⃣ Fill model dropdown when brand is selected
-brand.addEventListener("change", function() {
-    let selectedBrand = brand.value;
+brand.addEventListener("change",function(){
+  let selectedBrand = brand.value;
 
-    // Clear previous model options
-    mobileModel.innerHTML = "";
+  Model.innerHTML = "";
 
-    if (selectedBrand !== "") {
-        let models = Object.keys(mobiles[selectedBrand]); // get models of selected brand
+  if(selectedBrand!==""){
+    let mobileModel = Object.keys(mobiles[selectedBrand]);
+  
+    
 
-        for (let i = 0; i < models.length; i++) {
-            let modelOpt = document.createElement("option");
-            modelOpt.text = models[i];
-            modelOpt.value = models[i];
-            mobileModel.appendChild(modelOpt);
-        }
+    for(i = 0; i < mobileModel.length; i++){
+      let modelOpt = document.createElement("option");
+      let modeelText = document.createTextNode(mobileModel[i]);
+      modelOpt.appendChild(modeelText);
+      Model.appendChild(modelOpt);
+
+
     }
+    
+    
+  }
 });
 
-  
+Model.addEventListener("change", function() {
+  let selectedBrand = brand.value;
+  let selectedModel = Model.value;
 
- 
-  
-  
+  modelDetails.innerHTML = ""; 
+
+  if (selectedModel !== "") {
+    let specs = mobiles[selectedBrand][selectedModel];
+
+    for (let key in specs) {
+      let value = specs[key];
+
+      if (typeof value === "object") {
+        for (let subKey in value) {
+          let p = document.createElement("p");
+          p.textContent = `${subKey}: ${value[subKey]}`;
+          modelDetails.appendChild(p);
+        }
+      } else {
+        let p = document.createElement("p");
+        p.textContent = `${key}: ${value}`;
+        modelDetails.appendChild(p);
+      }
+    }
+  }
+});
+
+
+
+
+
 
